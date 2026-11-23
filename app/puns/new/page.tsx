@@ -38,7 +38,7 @@ const NewPunPage = () => {
   const addPun = async (content: string, category: string) => {
     setError('')
     try {
-      const response = await fetch(`${API_URL}/puns`, {
+      const response = await fetch(`${API_URL}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({content, category})
