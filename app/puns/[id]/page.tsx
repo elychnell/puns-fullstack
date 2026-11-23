@@ -1,5 +1,6 @@
 "use client"
 
+import { API_URL } from "@/lib/config";
 import { capitalize, formatDate } from "@/lib/format";
 import { Pun } from "@/lib/types";
 import Link from "next/link";
@@ -18,7 +19,7 @@ const PunDetailPage = () => {
     const fetchPun = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/${id}`)
+        const response = await fetch(`${API_URL}/${id}`)
         const data = await response.json()
         // console.log(data)
         if (!response.ok) {
@@ -45,7 +46,7 @@ const PunDetailPage = () => {
 
     setError('')
     try {
-      const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/${pun.id}`, {
+      const response = await fetch(`${API_URL}/${pun.id}`, {
         method: 'DELETE',
       })
       const data = await response.json()

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import PunItem from "./PunItem";
 import PunOfTheMoment from "./PunOfTheMoment";
 import { Pun } from "@/lib/types";
+import { API_URL } from "@/lib/config";
 
 type PunListProps = {
   category: string
@@ -21,7 +22,7 @@ const PunList = ({category}: PunListProps) => {
     const fetchPuns = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns?category=${category}`)
+        const response = await fetch(`${API_URL}/puns?category=${category}`)
         const data = await response.json()
         console.log(data)
 

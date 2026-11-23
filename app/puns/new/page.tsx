@@ -1,6 +1,7 @@
 "use client"
 
 import PunForm from '@/components/PunForm';
+import { API_URL } from '@/lib/config';
 import { router } from 'next/client';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react'
@@ -18,7 +19,7 @@ const NewPunPage = () => {
     const fetchCategories = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/categories`)
+        const response = await fetch(`${API_URL}/categories`)
         const data = await response.json()
         // console.log(data)
 
@@ -37,7 +38,7 @@ const NewPunPage = () => {
   const addPun = async (content: string, category: string) => {
     setError('')
     try {
-      const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns`, {
+      const response = await fetch(`${API_URL}/puns`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({content, category})

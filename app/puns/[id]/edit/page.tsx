@@ -5,6 +5,7 @@ import PunForm from '@/components/PunForm';
 import { Pun } from '@/lib/types';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { API_URL } from '@/lib/config';
 
 const EditPunPage = () => {
   const { id } = useParams<{id: string}>()
@@ -21,7 +22,7 @@ const EditPunPage = () => {
     const fetchCategories = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/categories`)
+        const response = await fetch(`${API_URL}/categories`)
         const data = await response.json()
         // console.log(data)
 
@@ -37,7 +38,7 @@ const EditPunPage = () => {
     const fetchPun = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/${id}`)
+        const response = await fetch(`${API_URL}/${id}`)
         const data = await response.json()
         // console.log(data)
         if (!response.ok) {
@@ -60,7 +61,7 @@ const EditPunPage = () => {
   const editPun = async (content: string, category: string) => {
     setError('')
     try {
-      const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/${id}`, {
+      const response = await fetch(`${API_URL}/${id}`, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({content, category})

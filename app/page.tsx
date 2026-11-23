@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import CategoriesDropdown from '../components/CategoriesDropdown';
 import PunList from '../components/PunList';
+import { API_URL } from '@/lib/config';
 
 const PunsPage = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -16,7 +17,7 @@ const PunsPage = () => {
     const fetchCategories = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/categories`)
+        const response = await fetch(`${API_URL}/categories`)
         const data = await response.json()
         // console.log(data)
 
