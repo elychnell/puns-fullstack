@@ -49,7 +49,7 @@ const NewPunPage = () => {
         setError(data.message)
         return false
       }
-      router.push(`/puns/${data._id}`)
+      router.push(`/puns/${data.id}`)
       return true
     } catch(error) {
       console.log('error')
