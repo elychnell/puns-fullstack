@@ -45,7 +45,7 @@ const PunDetailPage = () => {
 
     setError('')
     try {
-      const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/${pun._id}`, {
+      const response = await fetch(`https://pun-api-with-auth.vercel.app/api/puns/${pun.id}`, {
         method: 'DELETE',
       })
       const data = await response.json()
@@ -85,7 +85,7 @@ const PunDetailPage = () => {
       </p>
 
       <section className="actions">
-        <Link href={`/puns/${pun._id}/edit`}>Edit</Link>
+        <Link href={`/puns/${pun.id}/edit`}>Edit</Link>
         <button onClick={() => router.back()}>Back</button>
         <button onClick={deletePun}>Delete</button>
       </section>

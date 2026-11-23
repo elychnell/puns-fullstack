@@ -49,7 +49,7 @@ const PunList = ({category}: PunListProps) => {
       <ul className="puns">
         {
           puns.map(pun => (
-            <PunItem key={pun._id} pun={pun}/>
+            <PunItem key={pun.id} pun={pun}/>
           )) 
         }
       </ul>

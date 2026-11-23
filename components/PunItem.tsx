@@ -10,7 +10,7 @@ type PunItemProps = {
 const PunItem = ({ pun}: PunItemProps) => {
   return (
     <li className="pun">
-      <Link href={`/puns/${pun._id}`}><p className="pun-content">{pun.content}</p></Link>
+      <Link href={`/puns/${pun.id}`}><p className="pun-content">{pun.content}</p></Link>
       <p className="pun-meta">
         <span className="tag">{capitalize(pun.category)}</span>
         <span>{formatDate(pun.date)}</span>
