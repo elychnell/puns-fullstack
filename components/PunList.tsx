@@ -22,7 +22,7 @@ const PunList = ({category}: PunListProps) => {
     const fetchPuns = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`${API_URL}/puns?category=${category}`)
+        const response = await fetch(`${API_URL}?category=${category}`)
         const data = await response.json()
         console.log(data)
 
